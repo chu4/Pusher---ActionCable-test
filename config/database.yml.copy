@@ -1,0 +1,21 @@
+# verify port 5432 or 5433
+# sudo -u postgres psql
+# create role myapp with createdb login password 'password1';
+# \quit
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  pool: 12
+  port: 5432
+  username: myapp
+  password: password1
+
+development:
+  <<: *default
+  database: realtime_development
+
+test:
+  <<: *default
+  database: realtime_test
