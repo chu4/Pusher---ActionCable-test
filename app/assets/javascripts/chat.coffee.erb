@@ -1,0 +1,13 @@
+$(document).ready =>
+
+  Pusher.logToConsole = true;
+
+  pusher = new Pusher('<%= Rails.application.secrets.pusher_key %>',
+    cluster: '<%= Rails.application.secrets.pusher_cluster %>',
+    encrypted: true);
+
+  channel = pusher.subscribe('chat-channel');
+  channel.bind 'new-message', (data) ->
+    $('#messages').prepend("<p><b>[#{data.username}]:</b> #{data.message}</p>")
+    return
+  return

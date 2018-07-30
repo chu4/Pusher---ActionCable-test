@@ -1,7 +1,5 @@
 p
   = cookies.signed[:username]
-p
-  #messages
 
 p
   = form_for :message, url: chat_index_path, remote: true, id: 'messages-form' do |f|
@@ -11,3 +9,6 @@ p
       = f.text_field :body
     p
       = f.submit 'send'
+
+p
+  #messages
