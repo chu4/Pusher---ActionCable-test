@@ -14,3 +14,8 @@ Dependencies:
 
 * Postgres
 
+Branches:
+
+* master with Pusher version
+* action-cable with Pusher changed to Action Cable
+
